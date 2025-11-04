@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SL COOL PRODUCTS | Mysore</title>
+  <link rel="icon" type="image/png" href="https://thumbs.dreamstime.com/b/ice-cubes-water-melt-cool-background-ice-blocks-cold-drinks-beverage-ice-cubes-water-melt-cool-background-153547983.jpg">
+
+
+
+  <style>
+    /* ========= BASIC STYLES ========= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #eaf6ff, #ffffff);
+      color: #222;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      background: rgba(0, 123, 200, 0.9);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #aee4ff;
+    }
+
+    /* ========= HERO SECTION ========= */
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    #bgVideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .hero h2 {
+      font-size: 2.7rem;
+      margin-bottom: 15px;
+      animation: fadeIn 2s ease-in;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      animation: fadeIn 3s ease-in;
+    }
+    .btn {
+      background: #00bfff;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #0099cc;
+      transform: scale(1.05);
+    }
+
+    /* ========= ICE CUBES ========= */
+    .ice-cube {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: url("https://png.pngtree.com/png-vector/20230110/ourmid/pngtree-transparent-ice-cube-png-image_6558692.png") center/contain no-repeat;
+      opacity: 0.9;
+      animation: float 10s linear infinite, spin 6s ease-in-out infinite alternate;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(20deg) scale(1.1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========= WHATSAPP BUTTON ========= */
+    #whatsappBtn {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: #25D366;
+      color: white;
+      font-size: 20px;
+      padding: 12px 16px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 100;
+      transition: 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #whatsappBtn img {
+      width: 35px;
+      height: 35px;
+    }
+    #whatsappBtn:hover {
+      transform: scale(1.1);
+      background: #1ebe57;
+    }
+
+    /* ========= SECTIONS ========= */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .about p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .products {
+      background: #eaf6ff;
+    }
+    .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+  gap: 30px;
+  margin-top: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.4s;
+      overflow: hidden;
+    }
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.4s;
+    }
+    .product:hover img { transform: scale(1.1); }
+    .product h3 { color: #0077c2; margin-top: 10px; }
+
+    /* ========= FORM ========= */
+    .order { background: #fff; }
+    form {
+      max-width: 500px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, select, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    /* ========= CONTACT ========= */
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* ========= FOOTER ========= */
+    footer {
+      background: #0077c2;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width:768px) {
+      .hero h2 { font-size: 2rem; }
+      header { flex-direction: column; align-items: flex-start; }
+      nav { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SL COOL PRODUCTS</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#order">Order Now</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="icevideo.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h2>Stay Cool with SL COOL PRODUCTS ❄️</h2>
+    <p>Pure Ice. Freshly Made. Delivered Anywhere in Mysore.</p>
+    <a href="#order" class="btn">Order Now</a>
+  </div>
+</section>
+
+<script>
+  for (let i = 0; i < 12; i++) {
+    const cube = document.createElement('div');
+    cube.classList.add('ice-cube');
+    cube.style.left = Math.random() * 100 + 'vw';
+    cube.style.animationDuration = (8 + Math.random() * 5) + 's';
+    cube.style.width = cube.style.height = (30 + Math.random() * 30) + 'px';
+    document.querySelector('.hero').appendChild(cube);
+  }
+</script>
+
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>
+    Welcome to <strong>SL COOL PRODUCTS</strong> — Mysore’s most trusted name in ice manufacturing since <b>2000</b>.
+    With over two decades of experience, we specialize in delivering <b>crystal-clear, hygienic ice</b> for homes, restaurants,
+    cafes, parties, and industries across the city.
+  </p>
+  <p>
+    All our ice cubes are made using <b>RO-purified water</b> and advanced freezing technology, ensuring every cube is
+    <b>pure, safe, and long-lasting</b>. We maintain strict hygiene standards in our production process and handle every
+    order with care to preserve freshness and clarity.
+  </p>
+  <p>
+    At SL COOL PRODUCTS, our mission is simple — to keep Mysore cool with <b>top-quality ice at affordable prices</b>.
+    From small household needs to large-scale event orders, we offer <b>timely delivery, consistent quality, and competitive rates</b>.
+  </p>
+  <p>
+    Over the years, we’ve become the <b>preferred ice supplier</b> for hundreds of local businesses, hotels, and caterers.
+    We take pride in our reliability, clean packaging, and dedicated service, ensuring every customer stays refreshed and satisfied.
+  </p>
+</section>
+
+
+<section id="products" class="products">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <!-- FIRST 3 PRODUCTS -->
+    <div class="product">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.ATGBCWeiFCCauN_W3aizoAHaE8?rs=1&pid=ImgDetMain" alt="Ice Cubes">
+      <h3>Crystal Ice Cubes</h3>
+      <p>Perfect for beverages, cafes, and homes. Clean and long-lasting.</p>
+    </div>
+    <div class="product">
+      <img src="https://png.pngtree.com/thumb_back/fh260/background/20220823/pngtree-crushed-ice-pile-on-dark-background-perfect-for-drinks-photo-image_26943996.jpg" alt="Crushed Ice">
+      <h3>Crushed Ice</h3>
+      <p>Ideal for juice shops, seafood, and party coolers.</p>
+    </div>
+    <div class="product">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.Nu9_QiHqqio0_fGd6HljjQHaHa?rs=1&pid=ImgDetMain" alt="Block Ice">
+      <h3>Block Ice</h3>
+      <p>Block Ice available for catering and industrial use.</p>
+    </div>
+
+    <!-- NEXT 3 PRODUCTS (NEWLY ADDED) -->
+    <div class="product">
+      <img src="https://res.cloudinary.com/mel-science/image/upload/fl_progressive:steep,q_auto:good,w_700/v1/article/59/images/403_xal97t.jpg" alt="Dry Ice Cubes">
+      <h3>Dry Ice Cubes</h3>
+      <p>Perfect for fog effects, preservation, and transport cooling.</p>
+    </div>
+    <div class="product">
+      <img src="https://thumbs.dreamstime.com/b/various-varieties-ice-cream-cones-various-varieties-ice-cream-cones-mint-blueberry-strawberry-pistachio-cherry-158155767.jpg" alt="Ice Creams">
+      <h3>Ice Creams</h3>
+      <p>Refreshing flavors to beat the Mysore heat, available in all sizes.</p>
+    </div>
+    <div class="product">
+      <img src="https://www.shutterstock.com/image-photo/spring-water-factory-selective-focus-260nw-2331735491.jpg" alt="Water Bottles">
+      <h3>Water Bottles</h3>
+      <p>Clean, purified drinking water bottles for all occasions.</p>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="order">
+  <h2>Order Now</h2>
+  <form id="orderForm">
+    <input type="text" id="customerName" placeholder="Your Name" required>
+    <input type="tel" id="customerPhone" placeholder="Your Phone Number" required>
+    <select id="productType" required>
+      <option value="">Select Product</option>
+      <option value="Crystal Ice Cubes">Crystal Ice Cubes</option>
+      <option value="Crushed Ice">Crushed Ice</option>
+      <option value="Block Ice">Block Ice</option>
+      <option value="Dry Ice Cubes">Dry Ice Cubes</option>
+      <option value="Ice Creams">Ice Creams</option>
+      <option value="Water Bottles">Water Bottles</option>
+    </select>
+    <input type="number" id="quantity" placeholder="Quantity (in kg / pieces)" required>
+    <textarea id="address" rows="3" placeholder="Delivery Address" required></textarea>
+    <button type="submit" class="btn">Send Order via WhatsApp</button>
+  </form>
+</section>
+
+<section id="contact" class="about">
+  <h2>Contact Us</h2>
+  <p>📍 Agrahara, Mysore<br>📞 +91 98809 80426<br>📧 slcoolproducts@gmail.com</p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15730.416875481949!2d76.648995!3d12.300812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf71483f579c59%3A0xaff61e67a983dc5f!2sSL%20Cool%20Products!5e0!3m2!1sen!2sin!4v1730642170000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+</section>
+
+<footer>
+  <p>© 2025 SL COOL PRODUCTS | Mysore | All Rights Reserved.</p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a id="whatsappBtn" href="https://wa.me/919880980426?text=Hi%20SL%20COOL%20PRODUCTS!%20I'd%20like%20to%20order%20ice%20❄️" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<script>
+  // WhatsApp Order form integration
+  document.getElementById("orderForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
+    const product = document.getElementById("productType").value;
+    const quantity = document.getElementById("quantity").value;
+    const address = document.getElementById("address").value;
+    const msg = `*New Ice Order*%0AName: ${name}%0APhone: ${phone}%0AProduct: ${product}%0AQuantity: ${quantity}%0AAddress: ${address}`;
+    window.open(`https://wa.me/919880980426?text=${msg}`, "_blank");
+  });
+</script>
+
+</body>
+</html>
